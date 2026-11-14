@@ -29,6 +29,42 @@ body{
   color: #fff;
   font-family: Montserrat, sans-serif;
 }
+
+/* CINEMATIC PRELOADER */
+#preloader {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: #050505;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader-logo {
+  font-family: Cinzel, serif;
+  font-size: clamp(28px, 5vw, 50px);
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #fff;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+.loader-logo span { color: var(--headline); }
+.loader-bar {
+  width: 150px; height: 3px; background: #222; margin-top: 20px; position: relative; overflow: hidden;
+}
+.loader-bar::before {
+  content: ''; position: absolute; left: -100%; width: 100%; height: 100%; background: var(--headline);
+  animation: loadLine 1.2s forwards;
+}
+@keyframes loadLine { 100% { left: 0; } }
+@keyframes pulseGlow { 0% { opacity: 0.6; } 100% { opacity: 1; text-shadow: 0 0 20px rgba(230,195,106,0.5); } }
+
 .navbar{background:rgba(0,0,0,.88)!important;backdrop-filter:blur(12px);padding:16px 0;position:fixed;top:0;width:100%;z-index:1000}
 .navbar-brand{font-family:Cinzel,serif;font-size:24px;font-weight:700;letter-spacing:2px}
 .navbar-brand span,
@@ -48,6 +84,21 @@ url("https://i.pinimg.com/1200x/ef/88/f9/ef88f90029745e77f880d105fbc605d0.jpg") 
 .hero small,.section-title small{color:var(--headline);text-transform:uppercase;letter-spacing:5px;font-weight:600}
 .hero h1{font-family:Cinzel,serif;font-size:clamp(45px,7vw,90px);margin:20px 0;font-weight:700}
 .hero p{font-size:18px;color:#ddd;line-height:1.8;max-width:650px;margin:auto}
+
+/* LIVE URGENCY BADGE */
+.urgency-badge {
+  display: inline-block;
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(230, 195, 106, 0.4);
+  padding: 8px 18px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  backdrop-filter: blur(10px);
+}
+.urgency-badge span { color: #2ecc71; font-weight: 700; }
+
 .btn-gold{background:var(--headline);color:#000;border:1px solid var(--headline);border-radius:0;padding:13px 28px;font-weight:700}
 .btn-gold:hover{background:transparent;color:var(--headline)}
 .btn-outline{background:transparent;color:#fff;border:1px solid #fff;border-radius:0;padding:13px 28px}
@@ -78,6 +129,22 @@ url("https://i.pinimg.com/1200x/ef/88/f9/ef88f90029745e77f880d105fbc605d0.jpg") 
 
 .price{color:var(--headline);font-size:30px;font-weight:700;margin:20px 0}
 .package-card ul{list-style:none;padding:0;color:var(--muted);line-height:2}
+
+/* TESTIMONIAL CARDS */
+.testimonial-card {
+  background: #111;
+  border: 1px solid var(--border);
+  padding: 30px;
+  height: 100%;
+  transition: .3s;
+}
+.testimonial-card:hover {
+  border-color: var(--headline);
+  transform: translateY(-5px);
+}
+.stars { color: var(--headline); margin-bottom: 12px; font-size: 16px; }
+.testimonial-card p { color: var(--muted); font-style: italic; line-height: 1.7; }
+.client-name { font-family: Cinzel, serif; font-weight: 700; margin-top: 15px; color: #fff; }
 
 .booking-section{
 background:linear-gradient(rgba(0,0,0,.86),rgba(0,0,0,.92)),
@@ -111,7 +178,6 @@ text-decoration:none;z-index:2000;box-shadow:0 5px 20px rgba(0,0,0,.5);transitio
     display:flex;align-items:center;justify-content:center;font-size:28px;
     text-decoration:none;z-index:2000;box-shadow:0 5px 20px rgba(0,0,0,.5);transition:.2s
 }
-
 .whatsapp:hover {
     background-color: #1ebe5d; 
     color: #ffffff;             
@@ -131,6 +197,12 @@ text-decoration:none;z-index:2000;box-shadow:0 5px 20px rgba(0,0,0,.5);transitio
 
 <body>
 
+<!-- CINEMATIC PRELOADER SCREEN -->
+<div id="preloader">
+  <div class="loader-logo">ARUN'S <span>CINEMATIC</span></div>
+  <div class="loader-bar"></div>
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-dark">
 <div class="container">
 <a class="navbar-brand" href="#home">ARUN'S <span>CINEMATIC</span></a>
@@ -144,158 +216,7 @@ text-decoration:none;z-index:2000;box-shadow:0 5px 20px rgba(0,0,0,.5);transitio
 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
 <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
 <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+<li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/aruns_cinematic/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
 </ul>
-</div>
-</div>
-</nav>
-
-<section class="hero" id="home">
-<div class="hero-content">
-<small>Photography • Films • Memories</small>
-<h1>ARUN'S <span>CINEMATIC</span></h1>
-<p>We capture your most beautiful moments and transform them into timeless cinematic memories.</p>
-<div class="mt-4">
-<a href="#booking" class="btn btn-gold m-1">Book Your Shoot</a>
-<a href="#gallery" class="btn btn-outline m-1">View Portfolio</a>
-</div>
-</div>
-</section>
-
-<section class="section" id="about">
-<div class="container">
-<div class="row align-items-center g-5">
-<div class="col-lg-6">
-<img class="about-img" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85" alt="Arun'S Cinematic">
-</div>
-<div class="col-lg-6">
-<div class="about-text">
-<small style="color:var(--headline);letter-spacing:4px">ABOUT US</small>
-<h2>Stories That <span>Stay Forever</span></h2>
-<p>Arun's Cinematic is a creative photography and cinematography studio dedicated to capturing real emotions, beautiful moments and unforgettable stories.</p>
-<p>From weddings and pre-wedding sessions to portraits, birthdays and events, we create visuals that feel timeless and personal.</p>
-<a href="#contact" class="btn btn-gold">Let's Create</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="section bg-black" id="services">
-<div class="container">
-<div class="section-title">
-<small>What We Do</small>
-<h2>Our Services</h2>
-<p>Professional photography and cinematic services for every special occasion.</p>
-</div>
-<div class="row g-4">
-<div class="col-md-4"><div class="service-card"><div class="service-icon">📸</div><h4>Wedding Photography</h4><p>Beautiful candid and traditional wedding photography that captures every emotion.</p></div></div>
-<div class="col-md-4"><div class="service-card"><div class="service-icon">🎬</div><h4>Cinematic Films</h4><p>Cinematic wedding films and creative storytelling with professional editing.</p></div></div>
-<div class="col-md-4"><div class="service-card"><div class="service-icon">💑</div><h4>Pre-Wedding</h4><p>Romantic pre-wedding sessions designed around your personality and story.</p></div></div>
-<div class="col-md-4"><div class="service-card"><div class="service-icon">👤</div><h4>Portraits</h4><p>Professional portraits for personal, fashion and social media profiles.</p></div></div>
-<div class="col-md-4"><div class="service-card"><div class="service-icon">🎂</div><h4>Birthday Events</h4><p>Capture every smile, celebration and memorable moment of your special day.</p></div></div>
-<div class="col-md-4"><div class="service-card"><div class="service-icon">🎉</div><h4>Event Photography</h4><p>Complete photography and video coverage for corporate and private events.</p></div></div>
-</div>
-</div>
-</section>
-
-<section class="section" id="gallery">
-<div class="container">
-<div class="section-title"><small>Our Work</small><h2>Featured Gallery</h2></div>
-<div class="row g-3">
-<div class="col-md-4"><div class="gallery"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt=""><div class="gallery-overlay"><h5>Wedding</h5></div></div></div>
-<div class="col-md-4"><div class="gallery"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85" alt=""><div class="gallery-overlay"><h5>Cinematic</h5></div></div></div>
-<div class="col-md-4"><div class="gallery"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=85" alt=""><div class="gallery-overlay"><h5>Couples</h5></div></div></div>
-<div class="col-md-4"><div class="gallery"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=85" alt=""><div class="gallery-overlay"><h5>Moments</h5></div></div></div>
-<div class="col-md-4"><div class="gallery"><img src="https://images.unsplash.com/photo-1460364157752-926555421a7e?auto=format&fit=crop&w=900&q=85" alt=""><div class="gallery-overlay"><h5>Portrait</h5></div></div></div>
-<div class="col-md-4"><div class="gallery"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85" alt=""><div class="gallery-overlay"><h5>Events</h5></div></div></div>
-</div>
-</div>
-</section>
-
-<section class="section bg-black" id="packages">
-<div class="container">
-<div class="section-title"><small>Choose Your Plan</small><h2>Our Packages</h2></div>
-<div class="row g-4">
-<div class="col-md-4"><div class="package-card"><h3>Basic</h3><div class="price">₹15,000</div><ul><li>✔ 1 Photographer</li><li>✔ 4 Hours Coverage</li><li>✔ 150 Edited Photos</li><li>✔ Online Gallery</li><li>✔ Basic Video</li></ul><a href="#booking" class="btn btn-gold">Book Now</a></div></div>
-<div class="col-md-4"><div class="package-card"><h3>Premium</h3><div class="price">₹30,000</div><ul><li>✔ 2 Photographers</li><li>✔ Full Day Coverage</li><li>✔ 400+ Edited Photos</li><li>✔ Cinematic Video</li><li>✔ Premium Album</li></ul><a href="#booking" class="btn btn-gold">Book Now</a></div></div>
-<div class="col-md-4"><div class="package-card"><h3>Luxury</h3><div class="price">₹50,000+</div><ul><li>✔ 2+ Photographers</li><li>✔ Full Event Coverage</li><li>✔ Drone Coverage</li><li>✔ Cinematic Film</li><li>✔ Premium Wedding Album</li></ul><a href="#booking" class="btn btn-gold">Book Now</a></div></div>
-</div>
-</div>
-</section>
-
-<section class="section booking-section" id="booking">
-<div class="container">
-<div class="section-title">
-<small>Reserve Your Date</small>
-<h2>Book Your Shoot</h2>
-<p>Fill in your details and send your booking request directly through WhatsApp.</p>
-</div>
-<div class="booking-box">
-<form id="bookingForm">
-<div class="row g-3">
-<div class="col-md-6"><input type="text" id="name" class="form-control" placeholder="Your Name" required></div>
-<div class="col-md-6"><input type="tel" id="phone" class="form-control" placeholder="Phone Number" required></div>
-<div class="col-md-6"><input type="date" id="date" class="form-control" required></div>
-<div class="col-md-6"><select id="service" class="form-select" required><option value="">Select Service</option><option>Wedding Photography</option><option>Wedding Cinematic Film</option><option>Pre-Wedding Shoot</option><option>Portrait Photography</option><option>Birthday Event</option><option>Other Event</option></select></div>
-<div class="col-md-6"><select id="package" class="form-select"><option>Basic Package</option><option>Premium Package</option><option>Luxury Package</option><option>Custom Package</option></select></div>
-<div class="col-md-6"><input type="text" id="location" class="form-control" placeholder="Event Location" required></div>
-<div class="col-12"><textarea id="message" class="form-control" rows="4" placeholder="Additional Requirements"></textarea></div>
-<div class="col-12"><button type="submit" class="btn btn-gold w-100">BOOK ON WHATSAPP</button></div>
-</div>
-</form>
-</div>
-</div>
-</section>
-
-<section class="section" id="contact">
-<div class="container">
-<div class="section-title"><small>Get In Touch</small><h2>Contact Arun'S Cinematic</h2></div>
-<div class="row">
-<div class="col-md-4"><div class="contact-box"><h5>Phone</h5><p>+91 96006 10409</p></div></div>
-<div class="col-md-4"><div class="contact-box"><h5>Email</h5><p>arunscinematic@gmail.com</p></div></div>
-<div class="col-md-4"><div class="contact-box"><h5>Instagram</h5><p><a href="https://www.instagram.com/aruns_cinematic/" target="_blank" rel="noopener noreferrer" style="color:var(--headline);text-decoration:none">@aruns_cinematic</a></p></div></div>
-<div class="col-md-4"><div class="contact-box"><h5>Location</h5><p>Chennai, Tamil Nadu</p></div></div>
-</div>
-</div>
-</section>
-
-<footer>
-<div class="container">
-<h3>ARUN'S <span>CINEMATIC</span></h3>
-<p>Capturing moments. Creating memories.</p>
-<p>© 2026 Arun's Cinematic. All Rights Reserved.</p>
-</div>
-</footer>
-
-<a href="https://www.instagram.com/aruns_cinematic/" class="instagram-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
-<a href="https://wa.me/919600610409" class="whatsapp" target="_blank" aria-label="WhatsApp">💬</a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const message =
-`ARUN'S CINEMATIC - BOOKING REQUEST
-
-Name: ${document.getElementById("name").value}
-Phone: ${document.getElementById("phone").value}
-Event Date: ${document.getElementById("date").value}
-Service: ${document.getElementById("service").value}
-Package: ${document.getElementById("package").value}
-Location: ${document.getElementById("location").value}
-
-Requirements:
-${document.getElementById("message").value}`;
-
-  window.open(
-    "https://wa.me/919600610409?text=" + encodeURIComponent(message),
-    "_blank"
-  );
-});
-</script>
-
-</body>
-</html>
