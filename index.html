@@ -17,7 +17,7 @@
   --headline-hover: #F3D98B;
   --muted: #B8B8B8;
   --border: #2A2A2A;
-}	
+}   
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -105,14 +105,16 @@ text-decoration:none;z-index:2000;box-shadow:0 5px 20px rgba(0,0,0,.5);transitio
 .instagram-btn:hover{color:#fff;transform:scale(1.08)}
 
 .whatsapp{
-.whatsapp {
-    background-color: #25D366; /* Standard WhatsApp green */
-    color: #fff;               /* Icon / text color */
+    position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;
+    background-color: #25D366; 
+    color: #fff;             
+    display:flex;align-items:center;justify-content:center;font-size:28px;
+    text-decoration:none;z-index:2000;box-shadow:0 5px 20px rgba(0,0,0,.5);transition:.2s
 }
 
 .whatsapp:hover {
-    background-color: #1ebe5d; /* Darker green when hovering */
-    color: #ffffff;            /* Text/icon color on hover */
+    background-color: #1ebe5d; 
+    color: #ffffff;             
     transform: scale(1.08);
 }
 
@@ -268,8 +270,7 @@ text-decoration:none;z-index:2000;box-shadow:0 5px 20px rgba(0,0,0,.5);transitio
 </footer>
 
 <a href="https://www.instagram.com/aruns_cinematic/" class="instagram-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
-
-<a href="https://wa.me/919600610409" class="whatsapp" target="_blank" aria-label="WhatsApp">☏</a>
+<a href="https://wa.me/919600610409" class="whatsapp" target="_blank" aria-label="WhatsApp">💬</a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -288,6 +289,7 @@ Location: ${document.getElementById("location").value}
 
 Requirements:
 ${document.getElementById("message").value}`;
+
   window.open(
     "https://wa.me/919600610409?text=" + encodeURIComponent(message),
     "_blank"
