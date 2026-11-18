@@ -94,7 +94,7 @@ body{
   color: var(--headline) !important;
 }
 
-/* HERO SPLIT SECTION */
+/* HERO SPLIT SECTION WITH YOUTUBE EMBED */
 .hero-split-section {
   min-height: 100vh;
   display: flex;
@@ -190,32 +190,27 @@ body{
 .client-name { font-family: Cinzel, serif; font-weight: 700; margin-top: 15px; color: #fff; }
 
 /* FAQ ACCORDION STYLING */
+.faq-section { background: #0f0f0f; }
 .accordion-item {
-  background-color: #141414;
-  border: 1px solid var(--border);
+  background-color: #141414 !important;
+  border: 1px solid var(--border) !important;
   margin-bottom: 15px;
   border-radius: 0 !important;
 }
 .accordion-button {
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: #1a1a1a !important;
+  color: #fff !important;
   font-family: Cinzel, serif;
   font-weight: 600;
   box-shadow: none !important;
 }
 .accordion-button:not(.collapsed) {
-  background-color: var(--headline);
-  color: #000;
-}
-.accordion-button::after {
-  filter: brightness(0) invert(1);
-}
-.accordion-button:not(.collapsed)::after {
-  filter: brightness(0);
+  color: var(--headline) !important;
+  background-color: #222 !important;
 }
 .accordion-body {
-  background-color: #111;
-  color: var(--muted);
+  color: var(--muted) !important;
+  background-color: #141414 !important;
   line-height: 1.7;
 }
 
@@ -291,4 +286,52 @@ footer p { color: #777; }
 <!-- HERO SPLIT SECTION -->
 <section class="hero-split-section" id="home">
 <div class="container">
-<div class="row align-items-center
+<div class="row align-items-center g-4">
+<div class="col-lg-6">
+<div class="hero-image-box">
+  <iframe src="https://www.youtube.com/embed/KqKEaNn1VXI?autoplay=1&mute=1&loop=1&playlist=KqKEaNn1VXI&controls=0" allow="autoplay"></iframe>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="hero-text-box">
+<small style="color:var(--headline); letter-spacing:4px; font-weight:600;">WEDDING PHOTOGRAPHY & FILMS</small>
+<h1>Wedding Photography That Tells <span>Your Love Story</span></h1>
+<p>Your wedding day should never feel like a photoshoot. Live every moment, from laughter to the little moments shared with people you love. At Arun's Cinematic, we capture your story naturally, preserving the emotions that make your celebration uniquely yours.</p>
+<a href="#booking" class="btn btn-gold">Explore Packages</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="section" id="about">
+<div class="container">
+<div class="row align-items-center g-5">
+<div class="col-lg-6">
+<img class="about-img" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85" alt="About Arun's Cinematic">
+</div>
+<div class="col-lg-6">
+<div class="about-text">
+<small style="color:var(--headline);letter-spacing:4px">ABOUT US</small>
+<h2>Stories That <span>Stay Forever</span></h2>
+<p>Arun's Cinematic is a creative photography and cinematography studio dedicated to capturing real emotions, beautiful moments and unforgettable stories.</p>
+<p>From weddings and pre-wedding sessions to portraits, birthdays and events, we create visuals that feel timeless and personal.</p>
+<a href="#contact" class="btn btn-gold mt-3">Let's Create</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="section bg-black" id="services">
+<div class="container">
+<div class="section-title">
+<small>What We Do</small>
+<h2>Our Services</h2>
+<p>Professional photography and cinematic services for every special occasion.</p>
+</div>
+<div class="row g-4">
+<div class="col-md-4"><div class="service-card"><div class="service-icon">📸</div><h4>Wedding Photography</h4><p>Beautiful candid and traditional wedding photography that captures every emotion.</p></div></div>
+<div class="col-md-4"><div class="service-card"><div class
