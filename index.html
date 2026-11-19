@@ -9,28 +9,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style> 
+<style>
 :root {
   --background: #0b0b0b;
+  --surface: #141414;
   --text: #F5F5F5;
   --headline: #E6C36A;
+  --headline-hover: #F3D98B;
   --muted: #B8B8B8;
   --border: #2A2A2A;
-}   
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
   margin: 0;
   background-color: var(--background);
   color: var(--text);
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 
-/* NAVBAR DESIGN */
+/* NAVBAR */
 .navbar {
-  background: rgba(10, 10, 10, 0.95) !important;
+  background: rgba(10, 10, 10, 0.96) !important;
   backdrop-filter: blur(10px);
-  padding: 15px 0;
+  padding: 14px 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -38,8 +41,8 @@ body{
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .navbar-brand {
-  font-family: Cinzel, serif;
-  font-size: 22px;
+  font-family: 'Cinzel', serif;
+  font-size: 21px;
   font-weight: 700;
   letter-spacing: 2px;
   color: #fff !important;
@@ -48,8 +51,8 @@ body{
 
 .nav-link {
   color: #ddd !important;
-  margin-left: 12px;
-  font-size: 13px;
+  margin-left: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
@@ -57,13 +60,12 @@ body{
 }
 .nav-link:hover { color: var(--headline) !important; }
 
-/* TOP ACTION BUTTONS */
 .nav-btn-call {
   background: transparent;
   border: 1px solid var(--headline);
   color: var(--headline) !important;
-  padding: 8px 16px;
-  font-size: 12px;
+  padding: 7px 14px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   margin-left: 10px;
@@ -80,8 +82,8 @@ body{
   background: var(--headline);
   border: 1px solid var(--headline);
   color: #000 !important;
-  padding: 8px 16px;
-  font-size: 12px;
+  padding: 7px 14px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   margin-left: 8px;
@@ -94,39 +96,40 @@ body{
   color: var(--headline) !important;
 }
 
-/* HERO SPLIT SECTION WITH YOUTUBE EMBED */
+/* HERO SPLIT SECTION */
 .hero-split-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 110px;
+  padding-top: 105px;
   padding-bottom: 60px;
 }
-.hero-image-box {
+.hero-video-box {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 460px;
   overflow: hidden;
-  border-bottom-right-radius: 100px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  background: #000;
+  border-bottom-right-radius: 90px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+  background: #111;
 }
-.hero-image-box iframe {
+.hero-video-box iframe {
   width: 100%;
   height: 100%;
   border: none;
-  transform: scale(1.15);
+  display: block;
 }
 
 .hero-text-box {
-  padding: 20px 30px;
+  padding: 20px 25px;
 }
 .hero-text-box h1 {
-  font-family: Cinzel, serif;
-  font-size: clamp(34px, 4.2vw, 52px);
+  font-family: 'Cinzel', serif;
+  font-size: clamp(32px, 4vw, 50px);
   font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 20px;
+  line-height: 1.22;
+  margin: 14px 0 18px;
   color: #fff;
 }
 .hero-text-box h1 span { color: var(--headline); }
@@ -134,7 +137,7 @@ body{
   color: var(--muted);
   font-size: 15px;
   line-height: 1.8;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
 }
 
 .btn-gold {
@@ -142,115 +145,291 @@ body{
   color: #000;
   border: 1px solid var(--headline);
   border-radius: 4px;
-  padding: 12px 28px;
+  padding: 12px 24px;
   font-weight: 700;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
 }
-.btn-gold:hover { background: transparent; color: var(--headline); }
+.btn-gold:hover {
+  background: transparent;
+  color: var(--headline);
+}
 
-.section { padding: 90px 0; }
-.section-title { text-align: center; margin-bottom: 50px; }
-.section-title small { color: var(--headline); text-transform: uppercase; letter-spacing: 4px; font-weight: 600; }
-.section-title h2 { font-family: Cinzel, serif; font-size: 40px; margin-top: 10px; }
-.section-title p { color: var(--muted); max-width: 600px; margin: 10px auto; }
+.btn-outline-gold {
+  background: transparent;
+  color: var(--headline);
+  border: 1px solid var(--headline);
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+.btn-outline-gold:hover {
+  background: var(--headline);
+  color: #000;
+}
 
-.service-card, .package-card, .testimonial-card {
-  background: #141414;
+/* SECTIONS */
+.section { padding: 85px 0; }
+.section-title { text-align: center; margin-bottom: 48px; }
+.section-title small {
+  color: var(--headline);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  display: block;
+}
+.section-title h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(30px, 4vw, 42px);
+  margin-top: 8px;
+  color: #fff;
+}
+.section-title p {
+  color: var(--muted);
+  max-width: 620px;
+  margin: 12px auto 0;
+  line-height: 1.7;
+}
+
+/* ABOUT */
+.about-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 6px;
   border: 1px solid var(--border);
-  padding: 35px 25px;
+}
+.about-text h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(30px, 3.8vw, 40px);
+  margin-top: 10px;
+  color: #fff;
+}
+.about-text h2 span { color: var(--headline); }
+.about-text p { color: var(--muted); line-height: 1.8; }
+
+/* SERVICE, PACKAGE, TESTIMONIAL CARDS */
+.service-card, .package-card, .testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 32px 24px;
   height: 100%;
+  border-radius: 4px;
   transition: 0.3s;
 }
 .service-card:hover, .package-card:hover, .testimonial-card:hover {
   transform: translateY(-6px);
   border-color: var(--headline);
 }
-.service-icon { font-size: 40px; margin-bottom: 15px; }
-.service-card h4, .package-card h3 { font-family: Cinzel, serif; }
-.service-card p, .package-card ul, .testimonial-card p { color: var(--muted); }
+.service-icon { font-size: 36px; margin-bottom: 14px; }
+.service-card h4, .package-card h3 {
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.service-card p, .package-card ul, .testimonial-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
 
-.about-img { width: 100%; height: 480px; object-fit: cover; border-radius: 6px; }
-.about-text h2 { font-family: Cinzel, serif; font-size: 40px; margin-top: 10px; }
-.about-text p { color: var(--muted); line-height: 1.8; }
-
-.gallery { position: relative; overflow: hidden; border-radius: 6px; }
-.gallery img { width: 100%; height: 280px; object-fit: cover; transition: 0.5s; display: block; }
-.gallery:hover img { transform: scale(1.08); }
+/* GALLERY */
+.gallery {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.gallery img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  transition: 0.45s;
+  display: block;
+}
+.gallery:hover img { transform: scale(1.06); }
 .gallery-overlay {
-  position: absolute; inset: 0; background: rgba(0,0,0,0.55);
-  display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.3s;
 }
 .gallery:hover .gallery-overlay { opacity: 1; }
-.gallery-overlay h5 { font-family: Cinzel, serif; font-size: 22px; color: #fff; }
+.gallery-overlay h5 {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  color: var(--headline);
+  margin: 0;
+}
 
-.price { color: var(--headline); font-size: 28px; font-weight: 700; margin: 20px 0; }
-.package-card ul { list-style: none; padding: 0; line-height: 2; }
-.stars { color: var(--headline); margin-bottom: 10px; }
-.client-name { font-family: Cinzel, serif; font-weight: 700; margin-top: 15px; color: #fff; }
+/* PACKAGES */
+.price {
+  color: var(--headline);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 16px 0;
+}
+.package-card ul { list-style: none; padding: 0; line-height: 2.1; }
 
-/* FAQ ACCORDION STYLING */
-.faq-section { background: #0f0f0f; }
+/* REVIEWS */
+.stars { color: var(--headline); margin-bottom: 10px; font-size: 15px; }
+.client-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  margin-top: 14px;
+  color: var(--headline);
+}
+
+/* FAQ ACCORDION (CINEMATIC DARK + GOLD) */
+.faq-wrapper { max-width: 860px; margin: auto; }
 .accordion-item {
-  background-color: #141414 !important;
-  border: 1px solid var(--border) !important;
-  margin-bottom: 15px;
-  border-radius: 0 !important;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 .accordion-button {
-  background-color: #1a1a1a !important;
-  color: #fff !important;
-  font-family: Cinzel, serif;
+  background: var(--surface);
+  color: #fff;
+  font-family: 'Cinzel', serif;
   font-weight: 600;
+  font-size: 16px;
+  padding: 18px 22px;
   box-shadow: none !important;
 }
 .accordion-button:not(.collapsed) {
-  color: var(--headline) !important;
-  background-color: #222 !important;
+  background: #1c180e;
+  color: var(--headline);
+}
+.accordion-button::after {
+  filter: invert(82%) sepia(35%) saturate(650%) hue-rotate(355deg) brightness(98%) contrast(92%);
 }
 .accordion-body {
-  color: var(--muted) !important;
-  background-color: #141414 !important;
-  line-height: 1.7;
+  background: #101010;
+  color: var(--muted);
+  line-height: 1.8;
+  padding: 18px 22px;
+  border-top: 1px solid var(--border);
 }
 
+/* BOOKING */
 .booking-section {
-  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.92)),
-  url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=90") center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.94)),
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=85") center/cover;
 }
-.booking-box { max-width: 800px; margin: auto; background: rgba(15,15,15,0.95); padding: 40px; border: 1px solid #333; }
-.form-control, .form-select { background: #0b0b0b; border: 1px solid #333; color: #fff; padding: 12px; border-radius: 0; }
-.form-control:focus, .form-select:focus { background: #0b0b0b; color: #fff; border-color: var(--headline); box-shadow: none; }
+.booking-box {
+  max-width: 820px;
+  margin: auto;
+  background: rgba(18, 18, 18, 0.96);
+  padding: 36px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.form-control, .form-select {
+  background: #0b0b0b;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 12px;
+  border-radius: 4px;
+}
+.form-control:focus, .form-select:focus {
+  background: #0b0b0b;
+  color: #fff;
+  border-color: var(--headline);
+  box-shadow: none;
+}
 .form-control::placeholder { color: #777; }
 
-.contact-box { text-align: center; padding: 20px; background: #121212; border: 1px solid var(--border); height: 100%; }
-.contact-box h5 { color: var(--headline); text-transform: uppercase; letter-spacing: 2px; }
-.contact-box p { color: var(--muted); margin-bottom: 0; }
+/* CONTACT */
+.contact-box {
+  text-align: center;
+  padding: 24px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  height: 100%;
+}
+.contact-box h5 {
+  color: var(--headline);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.contact-box p { color: var(--muted); margin: 0; font-size: 14px; }
 
-footer { background: #050505; border-top: 1px solid #222; padding: 40px 0; text-align: center; }
-footer h3 { font-family: Cinzel, serif; }
+/* FOOTER & FLOATING BUTTONS */
+footer {
+  background: #060606;
+  border-top: 1px solid #222;
+  padding: 38px 0;
+  text-align: center;
+}
+footer h3 { font-family: 'Cinzel', serif; color: #fff; }
 footer span { color: var(--headline); }
-footer p { color: #777; }
+footer p { color: #777; margin: 6px 0 0; font-size: 13px; }
 
 .instagram-btn {
-  position: fixed; right: 22px; bottom: 92px; width: 55px; height: 55px; border-radius: 50%;
-  background: linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7); color: #fff;
-  display: flex; align-items: center; justify-content: center; font-size: 22px;
-  text-decoration: none; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: 0.2s;
+  position: fixed;
+  right: 20px;
+  bottom: 88px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-decoration: none;
+  z-index: 2000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
 }
-.instagram-btn:hover { color: #fff; transform: scale(1.08); }
+.instagram-btn:hover { color: #fff; transform: scale(1.06); }
 
 .whatsapp {
-  position: fixed; right: 22px; bottom: 22px; width: 55px; height: 55px; border-radius: 50%;
-  background-color: #25D366; color: #fff;
-  display: flex; align-items: center; justify-content: center; font-size: 26px;
-  text-decoration: none; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: 0.2s;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-decoration: none;
+  z-index: 2000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
 }
-.whatsapp:hover { background-color: #1ebe5d; color: #fff; transform: scale(1.08); }
+.whatsapp:hover { background-color: #1ebe5d; color: #fff; transform: scale(1.06); }
 
-@media(max-width:991px) {
-  .hero-image-box { height: 350px; border-bottom-right-radius: 0; margin-bottom: 20px; }
-  .hero-text-box { padding: 10px; }
+@media (max-width: 991px) {
+  .hero-video-box {
+    height: 280px;
+    border-bottom-right-radius: 40px;
+    margin-bottom: 16px;
+  }
+  .hero-text-box { padding: 10px 6px; }
+  .about-img { height: 320px; }
 }
 </style>
 </head>
@@ -259,79 +438,462 @@ footer p { color: #777; }
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-<div class="container">
-<a class="navbar-brand" href="#home">ARUN'S <span>CINEMATIC</span></a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navigation">
-<ul class="navbar-nav ms-auto align-items-lg-center">
-<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-<li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-<li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
-<li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
-<li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-<li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
-  <a href="tel:9600610409" class="nav-btn-call">Call</a>
-  <a href="#booking" class="nav-btn-book">Book Now</a>
-</li>
-</ul>
-</div>
-</div>
+  <div class="container">
+    <a class="navbar-brand" href="#home">ARUN'S <span>CINEMATIC</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
+          <a href="tel:9600610409" class="nav-btn-call">Call</a>
+          <a href="#booking" class="nav-btn-book">Book Now</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
 <!-- HERO SPLIT SECTION -->
 <section class="hero-split-section" id="home">
-<div class="container">
-<div class="row align-items-center g-4">
-<div class="col-lg-6">
-<div class="hero-image-box">
-  <iframe src="https://www.youtube.com/embed/KqKEaNn1VXI?autoplay=1&mute=1&loop=1&playlist=KqKEaNn1VXI&controls=0" allow="autoplay"></iframe>
-</div>
-</div>
-<div class="col-lg-6">
-<div class="hero-text-box">
-<small style="color:var(--headline); letter-spacing:4px; font-weight:600;">WEDDING PHOTOGRAPHY & FILMS</small>
-<h1>Wedding Photography That Tells <span>Your Love Story</span></h1>
-<p>Your wedding day should never feel like a photoshoot. Live every moment, from laughter to the little moments shared with people you love. At Arun's Cinematic, we capture your story naturally, preserving the emotions that make your celebration uniquely yours.</p>
-<a href="#booking" class="btn btn-gold">Explore Packages</a>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <div class="hero-video-box">
+          <iframe
+            src="https://www.youtube.com/embed/KqKEaNn1VXI?rel=0&modestbranding=1"
+            title="Love at first sight - Film by Arun"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-text-box">
+          <small style="color:var(--headline); letter-spacing:4px; font-weight:600;">PHOTOGRAPHY & CINEMATIC FILMS</small>
+          <h1>Stories That Capture <span>Your Real Emotions</span></h1>
+          <p>Your special day should never feel like a stiff photoshoot. At Arun's Cinematic, we capture genuine expressions, candid moments, and timeless visual stories crafted just for you.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#booking" class="btn-gold">Book Your Shoot</a>
+            <a href="https://youtu.be/KqKEaNn1VXI" target="_blank" rel="noopener noreferrer" class="btn-outline-gold">Watch Short Film</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT SECTION -->
 <section class="section" id="about">
-<div class="container">
-<div class="row align-items-center g-5">
-<div class="col-lg-6">
-<img class="about-img" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85" alt="About Arun's Cinematic">
-</div>
-<div class="col-lg-6">
-<div class="about-text">
-<small style="color:var(--headline);letter-spacing:4px">ABOUT US</small>
-<h2>Stories That <span>Stay Forever</span></h2>
-<p>Arun's Cinematic is a creative photography and cinematography studio dedicated to capturing real emotions, beautiful moments and unforgettable stories.</p>
-<p>From weddings and pre-wedding sessions to portraits, birthdays and events, we create visuals that feel timeless and personal.</p>
-<a href="#contact" class="btn btn-gold mt-3">Let's Create</a>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <img class="about-img" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85" alt="About Arun's Cinematic">
+      </div>
+      <div class="col-lg-6">
+        <div class="about-text">
+          <small style="color:var(--headline); letter-spacing:4px; font-weight:600;">ABOUT US</small>
+          <h2>Frames That <span>Stay Forever</span></h2>
+          <p>Arun's Cinematic is a creative photography and cinematography studio focused on candid storytelling, clean framing, and natural emotion.</p>
+          <p>From weddings and pre-wedding sessions to portraits, birthdays, and special events, every project is handled with personal care and cinematic polish.</p>
+          <a href="#contact" class="btn-gold mt-2">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES SECTION -->
 <section class="section bg-black" id="services">
-<div class="container">
-<div class="section-title">
-<small>What We Do</small>
-<h2>Our Services</h2>
-<p>Professional photography and cinematic services for every special occasion.</p>
-</div>
-<div class="row g-4">
-<div class="col-md-4"><div class="service-card"><div class="service-icon">📸</div><h4>Wedding Photography</h4><p>Beautiful candid and traditional wedding photography that captures every emotion.</p></div></div>
-<div class="col-md-4"><div class="service-card"><div class
+  <div class="container">
+    <div class="section-title">
+      <small>What We Do</small>
+      <h2>Our Services</h2>
+      <p>Professional photography and cinematic services tailored for every occasion.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="service-card text-center">
+          <div class="service-icon">📸</div>
+          <h4>Wedding Photography</h4>
+          <p>Candid and traditional wedding photography capturing every ritual, smile, and emotion.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card text-center">
+          <div class="service-icon">🎬</div>
+          <h4>Cinematic Films</h4>
+          <p>Story-driven highlight reels and cinematic films with balanced sound and color grading.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card text-center">
+          <div class="service-icon">💑</div>
+          <h4>Pre-Wedding</h4>
+          <p>Creative couple and pre-wedding shoots planned around your chemistry and locations.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card text-center">
+          <div class="service-icon">👤</div>
+          <h4>Portraits</h4>
+          <p>Clean, expressive portraits for personal branding, fashion, and social profiles.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card text-center">
+          <div class="service-icon">🎂</div>
+          <h4>Birthday Events</h4>
+          <p>Lively coverage of celebrations, family moments, and candid reactions.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card text-center">
+          <div class="service-icon">🎉</div>
+          <h4>Event Photography</h4>
+          <p>Reliable photo and video coverage for private gatherings, functions, and milestones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <small>Our Work</small>
+      <h2>Featured Gallery</h2>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Wedding">
+          <div class="gallery-overlay"><h5>Wedding</h5></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85" alt="Cinematic">
+          <div class="gallery-overlay"><h5>Cinematic</h5></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=85" alt="Couples">
+          <div class="gallery-overlay"><h5>Couples</h5></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=85" alt="Moments">
+          <div class="gallery-overlay"><h5>Moments</h5></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1460364157752-926555421a7e?auto=format&fit=crop&w=900&q=85" alt="Portrait">
+          <div class="gallery-overlay"><h5>Portrait</h5></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85" alt="Events">
+          <div class="gallery-overlay"><h5>Events</h5></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES SECTION -->
+<section class="section bg-black" id="packages">
+  <div class="container">
+    <div class="section-title">
+      <small>Choose Your Plan</small>
+      <h2>Our Packages</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="package-card text-center">
+          <h3>Basic</h3>
+          <div class="price">₹15,000</div>
+          <ul>
+            <li>✔ 1 Photographer</li>
+            <li>✔ 4 Hours Coverage</li>
+            <li>✔ 150 Edited Photos</li>
+            <li>✔ Online Gallery</li>
+            <li>✔ Highlight Reel</li>
+          </ul>
+          <a href="#booking" class="btn-gold mt-3">Book Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="package-card text-center">
+          <h3>Premium</h3>
+          <div class="price">₹30,000</div>
+          <ul>
+            <li>✔ 2 Photographers</li>
+            <li>✔ Full Day Coverage</li>
+            <li>✔ 400+ Edited Photos</li>
+            <li>✔ Cinematic Video</li>
+            <li>✔ Premium Album</li>
+          </ul>
+          <a href="#booking" class="btn-gold mt-3">Book Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="package-card text-center">
+          <h3>Luxury</h3>
+          <div class="price">₹50,000+</div>
+          <ul>
+            <li>✔ 2+ Photographers</li>
+            <li>✔ Full Event Coverage</li>
+            <li>✔ Drone Coverage</li>
+            <li>✔ Cinematic Film</li>
+            <li>✔ Premium Wedding Album</li>
+          </ul>
+          <a href="#booking" class="btn-gold mt-3">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-title">
+      <small>Client Love</small>
+      <h2>What Clients Say</h2>
+      <p>Feedback from clients who trusted us with their special occasions.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Arun and team captured every emotion naturally without making us feel rushed. The final film still gives us chills."</p>
+          <div class="client-name">- Karthik & Priya</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Great patience, clear direction, and super clean editing. Our outdoor shoot turned out crisp and cinematic."</p>
+          <div class="client-name">- Vignesh Kumar</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"On-time delivery and great album finishing. Completely worth booking Arun's Cinematic for big events."</p>
+          <div class="client-name">- Divya Sree</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ACCORDION SECTION -->
+<section class="section bg-black" id="faq">
+  <div class="container">
+    <div class="section-title">
+      <small>Quick Answers</small>
+      <h2>Frequently Asked Questions</h2>
+      <p>Common questions about bookings, packages, travel, and photo/video delivery.</p>
+    </div>
+    <div class="faq-wrapper">
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Can we customize a package based on our event requirements?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes. Every event is different—whether you need extra hours, additional shooters, drone coverage, or a custom album count, we tailor packages to fit your schedule and budget.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Do you travel outside Chennai for weddings and shoots?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, we travel across Tamil Nadu and other cities for weddings, pre-wedding shoots, and events. Travel and accommodation charges depend on the location and shoot duration.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              How early should we book our date?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              For weddings and peak season dates, booking 4 to 8 weeks in advance is recommended so we can lock your date and plan locations smoothly.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+              How long does it take to receive edited photos and films?
+            </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Highlight teasers/reels are shared quickly after the shoot, while full edited photo galleries and cinematic films are delivered in stages after careful color grading and review.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+              How do we confirm a booking?
+            </button>
+          </h2>
+          <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Fill out the booking form below to send your details directly on WhatsApp, or call us at +91 96006 10409 to check date availability.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING SECTION -->
+<section class="section booking-section" id="booking">
+  <div class="container">
+    <div class="section-title">
+      <small>Reserve Your Date</small>
+      <h2>Book Your Shoot</h2>
+      <p>Fill in your details and send your booking request directly via WhatsApp.</p>
+    </div>
+    <div class="booking-box">
+      <form id="bookingForm">
+        <div class="row g-3">
+          <div class="col-md-6"><input type="text" id="name" class="form-control" placeholder="Your Name" required></div>
+          <div class="col-md-6"><input type="tel" id="phone" class="form-control" placeholder="Phone Number" required></div>
+          <div class="col-md-6"><input type="date" id="date" class="form-control" required></div>
+          <div class="col-md-6">
+            <select id="service" class="form-select" required>
+              <option value="">Select Service</option>
+              <option>Wedding Photography</option>
+              <option>Cinematic Films</option>
+              <option>Pre-Wedding Shoot</option>
+              <option>Portrait Photography</option>
+              <option>Birthday Event</option>
+              <option>Event Photography</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select id="package" class="form-select">
+              <option>Basic Package</option>
+              <option>Premium Package</option>
+              <option>Luxury Package</option>
+              <option>Custom Package</option>
+            </select>
+          </div>
+          <div class="col-md-6"><input type="text" id="location" class="form-control" placeholder="Event Location" required></div>
+          <div class="col-12"><textarea id="message" class="form-control" rows="4" placeholder="Additional Requirements"></textarea></div>
+          <div class="col-12"><button type="submit" class="btn-gold w-100">Book On WhatsApp</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section bg-black" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <small>Get In Touch</small>
+      <h2>Contact Arun's Cinematic</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="contact-box">
+          <h5>Phone</h5>
+          <p>+91 96006 10409</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="contact-box">
+          <h5>Email</h5>
+          <p>arunscinematic@gmail.com</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="contact-box">
+          <h5>Instagram</h5>
+          <p><a href="https://www.instagram.com/aruns_cinematic/" target="_blank" rel="noopener noreferrer" style="color:var(--headline);text-decoration:none;">@aruns_cinematic</a></p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="contact-box">
+          <h5>Location</h5>
+          <p>Chennai, Tamil Nadu</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h3>ARUN'S <span>CINEMATIC</span></h3>
+    <p>Capturing moments. Creating memories.</p>
+    <p>© 2026 Arun's Cinematic. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<a href="https://www.instagram.com/aruns_cinematic/" class="instagram-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+<a href="https://wa.me/919600610409" class="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const message =
+`ARUN'S CINEMATIC - BOOKING REQUEST
+
+Name: ${document.getElementById("name").value}
+Phone: ${document.getElementById("phone").value}
+Event Date: ${document.getElementById("date").value}
+Service: ${document.getElementById("service").value}
+Package: ${document.getElementById("package").value}
+Location: ${document.getElementById("location").value}
+
+Requirements:
+${document.getElementById("message").value}`;
+
+  window.open(
+    "https://wa.me/919600610409?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+});
+</script>
+
+</body>
+</html>
